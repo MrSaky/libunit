@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:48:30 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/08 20:58:44 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/08 21:49:05 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct s_unit_test
 	int					(*f)(void);
 }				t_unit_test;
 
-int			launch_tests(t_unit_test **test);
+int			launch_tests(t_unit_test *test);
 void		load_test(t_unit_test *tests, char *test_name, char *f_name, int (*f)(void));
 
 #endif

@@ -1,5 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   unit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/08 21:50:11 by shocquen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libunit.h"
-#include <errno.h>
+#include <stdio.h> //TODO rm
 
 static inline t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void))
 {
@@ -33,15 +45,12 @@ static inline void	test_append(t_unit_test **test, t_unit_test *new)
 // TODO
 static void run_test(t_unit_test *test) 
 {
-	int	ret;
-
 	if (test->next)
 		exit(EXIT_FAILURE);
-	// *(int*)0 = 0;
 	exit(EXIT_SUCCESS);
 }
 
-int		launch_tests(t_unit_test **test)
+int		launch_tests(t_unit_test *test)
 {
 	while(test)
 	{
@@ -50,15 +59,20 @@ int		launch_tests(t_unit_test **test)
 
 		ret = fork();
 		if (!ret)
-			run_test(*test);
+			run_test(test);
+		else if (ret < 0)
+		{
+			printf(0, "We got in trouble at fork ^^\n");
+		}
 		else
 		{
 			ret = wait(&signal);
-			printf("pid: %d\nsignal: %d\n", ret, signal);
 			if (!ret)
-				return (TEST_FAILLURE);
-			return (TEST_SUCCESS);
+				return (-1);
+			//TODO: remove printf("pid: %d\nsignal: %d\n", ret, signal);
+			printf("%s: %s : %s\n", test->test_name, test->f_name, show_result(signal));
 		}
+		test = test->next;
 	}
 	return (TEST_SUCCESS);
 }
