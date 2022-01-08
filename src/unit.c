@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/08 23:04:57 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/08 23:55:55 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ static void	test_append(t_unit_test **test, t_unit_test *new)
 	}
 }
 
-// TODO
 static void run_test(t_unit_test *test) 
 {
-	if (test->next)
-		exit(EXIT_FAILURE);
-	exit(EXIT_SUCCESS);
+	int	ret;
+
+	ret = test->f();
+	if (ret == TEST_SUCCESS)
+		return exit(EXIT_SUCCESS);
+	return exit(EXIT_FAILURE);
 }
 
 int		launch_tests(t_unit_test **test)
@@ -69,8 +71,7 @@ int		launch_tests(t_unit_test **test)
 			ret = wait(&signal);
 			if (!ret)
 				return (-1);
-			//TODO: remove printf("pid: %d\nsignal: %d\n", ret, signal);
-			// printf
+			printf("%s: %s : %s\n", (*test)->test_name, (*test)->f_name, show_result(signal));
 		}
 		*test = (*test)->next;
 	}

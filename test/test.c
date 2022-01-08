@@ -17,6 +17,7 @@ static inline void	show_tests(t_unit_test *test)
 static inline int foo_f(void)
 {
 	static int	i = 0;
+		raise(SIGSEGV);
 	return (i++);
 }
 
@@ -31,7 +32,7 @@ int main(int argc, char **argv)
 		foo = NULL;
 		for (int i = 2; i < argc; i += 2)
 			load_test(&foo, argv[i - 1], argv[i], &foo_f);
-		show_tests(foo);
-		// return (launch_tests(foo));
+		// show_tests(foo);
+		return (launch_tests(&foo));
 	}
 }

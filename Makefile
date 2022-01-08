@@ -56,7 +56,7 @@ NAME		= libunit.a
 RM			= rm -f
 CC			= gcc
 AR			= ar -rcs
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra 
 
 %.o : %.c
 			$(call compiling,$<,$(<:.c=.o),0)
