@@ -79,4 +79,8 @@ test: all $(TEST_OBJS)
 tclean:	clean
 			$(call removing,$(TEST_OBJS))
 
+ftclean: fclean
+			$(call removing,$(TEST_OBJS))
+			$(call removing,./a.out)
+
 re:	fclean all
