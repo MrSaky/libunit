@@ -18,13 +18,13 @@ endef
 
 define finishing
 	@echo "$(shell tput bold)$(shell tput setaf 2)Compiling $1 $(shell tput sgr0)"
-	@$(AR) $(OBJS) -I$(INC) -o $(NAME)
+	@$(AR) ./lib/$1 $(OBJS)
 	@echo "$(shell tput bold)$(shell tput setaf 2)√$(shell tput sgr0)"
 endef
 
 define testing
-	@echo "$(shell tput bold)$(shell tput setaf 2)Testing $1 $(shell tput sgr0)"
-	@gcc $(CFLAGS) $(OBJS) $(LIBS) -I$(INC) -o $1
+	@echo "$(shell tput bold)$(shell tput setaf 2)Generating $1 $(shell tput sgr0)"
+	@gcc $(CFLAGS) $(TEST_OBJS) $(OBJS) $(LIBS) -I$(INC)
 	@echo "$(shell tput bold)$(shell tput setaf 2)√$(shell tput sgr0)"
 endef
 
@@ -41,12 +41,14 @@ define removing
 endef
 
 TEST	= test
+TEST_SRCS	= $(wildcard test/*.c)
+TEST_OBJS	= $(TEST_SRCS:.c=.o)
 
 SRCS		= $(wildcard src/*.c)
 
 OBJS		= $(SRCS:.c=.o)
 
-INC		= ./includes
+INC		= includes
 
 LIBS	=	./lib/libunit.a
 
@@ -68,10 +70,13 @@ clean:
 			$(call removing,$(OBJS))
 
 fclean:		clean
-			$(call removing,${NAME})
+			$(call removing,./lib/${NAME})
 
 
-test: $(OBJS) $(NAME)
+test: all $(TEST_OBJS)
 			$(call testing,$(TEST))
+
+tclean:	clean
+			$(call removing,$(TEST_OBJS))
 
 re:	fclean all

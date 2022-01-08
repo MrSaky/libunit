@@ -6,14 +6,14 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/08 21:50:11 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/08 23:04:57 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 #include <stdio.h> //TODO rm
 
-static inline t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void))
+static t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void))
 {
 	t_unit_test	*ret;
 
@@ -27,7 +27,7 @@ static inline t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void
 	return  (ret);
 }
 
-static inline void	test_append(t_unit_test **test, t_unit_test *new)
+static void	test_append(t_unit_test **test, t_unit_test *new)
 {
 	t_unit_test	*tmp;
 
@@ -50,16 +50,16 @@ static void run_test(t_unit_test *test)
 	exit(EXIT_SUCCESS);
 }
 
-int		launch_tests(t_unit_test *test)
+int		launch_tests(t_unit_test **test)
 {
-	while(test)
+	while(*test)
 	{
 		int ret;
 		int	signal;
 
 		ret = fork();
 		if (!ret)
-			run_test(test);
+			run_test(*test);
 		else if (ret < 0)
 		{
 			printf(0, "We got in trouble at fork ^^\n");
@@ -70,21 +70,21 @@ int		launch_tests(t_unit_test *test)
 			if (!ret)
 				return (-1);
 			//TODO: remove printf("pid: %d\nsignal: %d\n", ret, signal);
-			printf("%s: %s : %s\n", test->test_name, test->f_name, show_result(signal));
+			// printf
 		}
-		test = test->next;
+		*test = (*test)->next;
 	}
 	return (TEST_SUCCESS);
 }
 
-void	load_test(t_unit_test *tests, char *test_name, char *f_name, int (*f)(void))
+void	load_test(t_unit_test **tests, char *test_name, char *f_name, int (*f)(void))
 {
-	if (!tests)
+	if (!*tests)
 	{
-		tests = test_new(test_name, f_name, f);
-		if (!tests)
+		*tests = test_new(test_name, f_name, f);
+		if (!*tests)
 			printf("ERRO LOAD TEST\n");
 	}
 	else
-		test_append(&tests, test_new(test_name, f_name, f));
+		test_append(tests, test_new(test_name, f_name, f));
 }

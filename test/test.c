@@ -23,13 +23,15 @@ static inline int foo_f(void)
 
 int main(int argc, char **argv)
 {
+
 	if (argc > 2)
 	{
 		t_unit_test *foo;
 
+		foo = NULL;
 		for (int i = 2; i < argc; i += 2)
-			load_test(foo, argv[i - 1], argv[i], &foo_f);
-		// show_tests(foo);
-		return (launch_tests(foo));
+			load_test(&foo, argv[i - 1], argv[i], &foo_f);
+		show_tests(foo);
+		// return (launch_tests(foo));
 	}
 }
