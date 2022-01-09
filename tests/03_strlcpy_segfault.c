@@ -6,13 +6,13 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:55:07 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 16:09:48 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 16:42:03 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test.h
+#include "test.h"
 
-int	test_ok(void)
+int	test_segfault(void)
 {
 	static char	src[] = "Yo !";
 	char		*dst;
@@ -28,4 +28,4 @@ int	test_ok(void)
 				return (-1);
 	}
 	return (0);
-}
+m

@@ -6,14 +6,14 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:08:42 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 16:09:55 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 16:42:27 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "test.h"
 
-int	test_ok(void)
+int	test_bus_ero(void)
 {
 	static char	src[] = "Yo !";
 	char		*dst;

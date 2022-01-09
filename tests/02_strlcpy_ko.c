@@ -6,13 +6,13 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:53:48 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 15:55:21 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 16:37:27 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int	test_ok(void)
+int	test_ko(void)
 {
 	static char	src[] = "salut les copinoux";
 	char		*dst;
