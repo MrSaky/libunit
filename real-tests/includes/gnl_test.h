@@ -6,12 +6,12 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:56:23 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 15:42:31 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 20:30:44 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_TESTS_H
-# define GNL_TESTS_H
+#ifndef GNL_TEST_H
+# define GNL_TEST_H
 
 # include "get_next_line.h"
 # include "libunit.h"
