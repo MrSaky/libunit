@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 19:02:18 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 20:59:24 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	launch_tests(t_unit_test **test)
 			if (!ret)
 				return (-1);
 			sm_printf("%s: %s : [%s]\n",
-				(*test)->test_name, (*test)->f_name, show_result(signal));
+				(*test)->f_name, (*test)->test_name, show_result(signal));
 		}
 		*test = (*test)->next;
 	}
