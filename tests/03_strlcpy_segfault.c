@@ -6,7 +6,7 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:55:07 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 16:42:03 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:40:13 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 int	test_segfault(void)
 {
-	static char	src[] = "Yo !";
-	char		*dst;
+	char	*src;
+	char	*dst;
 
-	
-	dst = malloc(sizeof(char) * sizeof(src));
-	if (!dst)
-		return (-1);
-	if (sizeof(src) == ft_strlcpy_rip(src, dst, ft_max(sizeof(src))))
-	{
-		while (src)
-			if (src++ != dst++)
-				return (-1);
-	}
+	src = ft_fill_str("Yo!");
+	dst = ft_strlcpy_rip(src, sizeof(src));
+	while (src)
+		if (src++ != dst++)
+			return (-1);
 	return (0);
-m
+}

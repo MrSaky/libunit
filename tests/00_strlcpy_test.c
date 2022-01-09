@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:45:59 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 17:33:12 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:34:18 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	routine_launcher(void)
 		{"strlcpy", "ok_test", &test_ok},
 		{"strlcpy", "ko_test", &test_ko},
 		{"strlcpy", "sigsev_test", &test_segfault},
-		{"strlcpy", "bus_e_test", &test_bus_ero}};
+		{"strlcpy", "bus_e_test", &test_bus_error}};
 	
 	t_unit_test			*tests;
 

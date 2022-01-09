@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:34:15 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 17:53:54 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:39:40 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 int	test_ok(void)
 {
-	static char	src[] = "salut";
-	char		*dst;
+	char	*src;
+	char	*dst;
 
-	
-	dst = malloc(sizeof(char) * sizeof(src));
-	if (!dst)
-		return (-1);
-	if (sizeof(src) == ft_strlcpy_rip(src, sizeof(src)))
-	{
-		while (src)
-			if (src++ != dst++)
-				return (-1);
-	}
+	src = ft_fill_str("salut !");
+	dst = ft_strlcpy_rip(src, sizeof(src));
+	while (src)
+		if (src++ != dst++)
+			return (-1);
 	return (0);
 }
