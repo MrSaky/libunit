@@ -16,7 +16,7 @@ NAME	=	tests
 MAIN	=	../../$(NAME).c
 SRCS =	$(wildcard ./*.c)
 
-INC 			=	$(wildcard ./*.h)
+INC 			=	includes
 LIB				=	../lib/libunit.a
 RM 				=	rm -rf
 OBJ				=	$(SRCS:.c=.o)
@@ -24,19 +24,25 @@ MAIN_OBJ	=	$(MAIN:.c=.o)
 CFLAG 		=	-Wall -Wextra -Werror
 
 all :	$(NAME)
-			@make -C ../
 
 %.o : %.c
-			$(CC) $(CFLAG) -I $(INC) -c $<
+			$(CC) $(CFLAG) -I $(INC) -c $< -o $@
 
 $(NAME) :	$(OBJ) $(MAIN_OBJ)
-			$(CC) $(OBJ) $(MAIN_OBJ) $(LIB) -o ../../$(NAME)
+			@make -C ../
+			$(CC) $(OBJ) $(MAIN_OBJ) $(LIB) -o ../../tester
 
 clean :
-			$(RM) $(OBJ)
+			$(RM) $(OBJ) ../ ../../tests.o
+			@make clean -C
 
 fclean :	clean
-			$(RM) $(NAME)
+			$(RM) $(NAME) ../../tester
+			@make fclean -C ../
+
+test	:	all
+			@echo "\nGOGOGO!\n\n"
+			@../../tester
 
 re : 		fclean all
 
