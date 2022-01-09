@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 13:32:47 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 14:20:57 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 18:59:32 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 #include <fcntl.h>
 #include <stdarg.h>
 
-
 static int	ft_strlen(const char *s)
 {
 	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 		i++;
 	return (i);
 }
@@ -44,11 +43,12 @@ static void	ft_putstr_fd(const char *s, int len, int fd)
 void	sm_printf(const char *ctx, ...)
 {
 	va_list	args;
-	char		*next;
+	char	*next;
 	size_t	len;
 
 	va_start(args, ctx);
-	while ((next = ft_strchr(ctx,'%')))
+	next = ft_strchr(ctx, '%');
+	while (next)
 	{
 		ft_putstr_fd((char *)ctx, (len = (size_t)(next - ctx)), 1);
 		ctx += len + 1;
@@ -57,6 +57,7 @@ void	sm_printf(const char *ctx, ...)
 		else
 			ft_putstr_fd("%", -1, 1);
 		ctx++;
+		next = ft_strchr(ctx, '%');
 	}
 	va_end(args);
 	ft_putstr_fd((char *)ctx, -1, 1);

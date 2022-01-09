@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 18:38:26 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 19:02:18 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void))
 	ret->f_name = f_name;
 	ret->f = f;
 	ret->next = NULL;
-	return  (ret);
+	return (ret);
 }
 
 static void	test_append(t_unit_test **test, t_unit_test *new)
@@ -42,23 +42,23 @@ static void	test_append(t_unit_test **test, t_unit_test *new)
 	}
 }
 
-static void run_test(t_unit_test *test) 
+static void	run_test(t_unit_test *test)
 {
 	int	ret;
 
 	ret = test->f();
 	if (ret == TEST_SUCCESS)
-		return exit(EXIT_SUCCESS);
-	return exit(EXIT_FAILURE);
+		exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }
 
-int		launch_tests(t_unit_test **test)
+int	launch_tests(t_unit_test **test)
 {
-	while(*test)
-	{
-		int ret;
-		int	signal;
+	int	ret;
+	int	signal;
 
+	while (*test)
+	{
 		ret = fork();
 		if (!ret)
 			run_test(*test);
@@ -71,14 +71,16 @@ int		launch_tests(t_unit_test **test)
 			ret = wait(&signal);
 			if (!ret)
 				return (-1);
-			sm_printf("%s: %s : [%s]\n", (*test)->test_name, (*test)->f_name, show_result(signal));
+			sm_printf("%s: %s : [%s]\n",
+				(*test)->test_name, (*test)->f_name, show_result(signal));
 		}
 		*test = (*test)->next;
 	}
 	return (TEST_SUCCESS);
 }
 
-void	load_test(t_unit_test **tests, char *test_name, char *f_name, int (*f)(void))
+void	load_test(t_unit_test **tests,
+	char *test_name, char *f_name, int (*f)(void))
 {
 	if (!*tests)
 	{
