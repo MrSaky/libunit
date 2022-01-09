@@ -6,14 +6,13 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 20:30:25 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 21:40:07 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:20:59 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl_test.h"
 
-#include <stdio.h> //todo rm this
 int	main(void)
 {
-	printf("return: %d\n", gnl_launcher());
+	return (gnl_launcher());
 }
