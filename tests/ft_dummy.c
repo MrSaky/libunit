@@ -6,7 +6,7 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 21:34:43 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 21:34:46 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:50:29 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_bus_errorer(char *str)
 
 char	ft_dummy(long long i)
 {
-	char str[] = "Hello World!";
-	char *ptr;
+	static char	str[] = "Hello World!";
+	char		*ptr;
 
 	ptr = str;
 	if (i <= 2)

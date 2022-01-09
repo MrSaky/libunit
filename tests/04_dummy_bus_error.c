@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_strlcpy_segfault.c                              :+:      :+:    :+:   */
+/*   04_dummy_bus_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 15:55:07 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 21:08:50 by athierry         ###   ########.fr       */
+/*   Created: 2022/01/09 21:44:10 by athierry          #+#    #+#             */
+/*   Updated: 2022/01/09 21:49:12 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-int	test_segfault(void)
+int	test_bus_error(void)
 {
-	if (ft_dummy(3) == 0)
+	if (ft_dummy(4) == 0)
 		return (0);
 	return (-1);
 }

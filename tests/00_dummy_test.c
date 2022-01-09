@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_strlcpy_test.c                                  :+:      :+:    :+:   */
+/*   00_dummy_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 16:45:59 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 21:34:25 by shocquen         ###   ########.fr       */
+/*   Created: 2022/01/09 21:43:16 by athierry          #+#    #+#             */
+/*   Updated: 2022/01/09 21:48:27 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 int	routine_launcher(void)
 {
-	unsigned long	i;
-	static t_test_list	list[]={
-		{"ok_test", "ft_dummy", &test_ok},
-		{"ko_test", "ft_dummy", &test_ko},
-		{"sigsev_test", "ft_dummy", &test_segfault},
-		{"bus_e_test", "ft_dummy", &test_bus_error}};
-	
+	unsigned long		i;
 	t_unit_test			*tests;
+	static t_test_list	list[] = {
+	{"ok_test", "ft_dummy", &test_ok},
+	{"ko_test", "ft_dummy", &test_ko},
+	{"sigsev_test", "ft_dummy", &test_segfault},
+	{"bus_e_test", "ft_dummy", &test_bus_error}};
 
 	i = 0;
 	while (i < 4)
