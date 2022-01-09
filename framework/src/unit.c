@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 20:59:24 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:49:36 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,27 +56,29 @@ int	launch_tests(t_unit_test **test)
 {
 	int	ret;
 	int	signal;
+	int	count[2];
 
+	count[0] = 0;
+	count[1] = 0;
 	while (*test)
 	{
 		ret = fork();
 		if (!ret)
 			run_test(*test);
-		else if (ret < 0)
-		{
-			sm_printf("%sWe got in trouble at fork ^^%s\n", CYLW, CNO);
-		}
 		else
 		{
 			ret = wait(&signal);
 			if (!ret)
-				return (-1);
+				return (-2);
 			sm_printf("%s: %s : [%s]\n",
 				(*test)->f_name, (*test)->test_name, show_result(signal));
+			if (signal == 0)
+				count[1]++;
 		}
 		*test = (*test)->next;
+		count[0]++;
 	}
-	return (TEST_SUCCESS);
+	return (check_sum(count));
 }
 
 void	load_test(t_unit_test **tests,

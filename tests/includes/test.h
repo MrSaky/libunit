@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 18:17:24 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 21:53:32 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:44:36 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct s_test_list
 }				t_test_list;
 
 char	ft_dummy(long long i);
-void	ft_bus_errorer(char *str);
 
 int		routine_launcher(void);
 

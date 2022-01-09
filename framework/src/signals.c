@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:23 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 15:07:39 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:48:52 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,11 @@ char	*show_result(int signal)
 			return (CRED"Segmentation Fault"CNO);
 	}
 	return (CRED"Error unknown"CNO);
+}
+
+int	check_sum(int *count)
+{
+	if (count[0] == count[1])
+		return (TEST_SUCCESS);
+	return (TEST_FAILLURE);
 }
