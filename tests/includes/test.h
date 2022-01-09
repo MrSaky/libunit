@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:55:16 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 17:04:46 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 17:53:10 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef	struct	s_test_list
 	char	*test_name;
 	int		(*f)(void);
 }				t_test_list;
+
+char	*ft_strlcpy_rip(char *src, size_t len);
 
 int	routine_launcher(void);
 int	test_ok(void);

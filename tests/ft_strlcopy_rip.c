@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_strlcopy_rip.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 00:49:50 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 16:09:49 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 17:52:46 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "test.h"
 
-char	*ft_strmlcpy_rip(char *src, size_t len)
+char	*ft_strlcpy_rip(char *src, size_t len)
 {
 	char	*dst;
 	char	*ptr;

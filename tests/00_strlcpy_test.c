@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 16:45:59 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 17:11:20 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 17:33:12 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	routine_launcher(void)
 {
-	int					i;
+	unsigned long	i;
 	static t_test_list	list[]={
 		{"strlcpy", "ok_test", &test_ok},
 		{"strlcpy", "ko_test", &test_ko},
@@ -26,5 +26,5 @@ int	routine_launcher(void)
 	i = 0;
 	while (i < sizeof(list))
 		load_test(&tests, list[i].test_name, list[i].f_name, list[i].f);
-	return (launch_test(&tests));
+	return (launch_tests(&tests));
 }
