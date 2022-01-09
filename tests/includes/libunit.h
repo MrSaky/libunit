@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:48:30 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 22:14:24 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:55:11 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_unit_test
 
 char	*show_result(int signal);
 int		check_sum(int *count);
+
+void	ft_lstclear(t_unit_test **lst, void (*del)(void *));
 
 int		launch_tests(t_unit_test **test);
 void	load_test(t_unit_test **tests,

@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 22:49:36 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 22:58:12 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ int	launch_tests(t_unit_test **test)
 	int	signal;
 	int	count[2];
 
-	count[0] = 0;
-	count[1] = 0;
+	*(long *)count = 0;
 	while (*test)
 	{
 		ret = fork();
@@ -78,6 +77,7 @@ int	launch_tests(t_unit_test **test)
 		*test = (*test)->next;
 		count[0]++;
 	}
+	ft_lstclear(test, &free);
 	return (check_sum(count));
 }
 
