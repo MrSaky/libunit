@@ -7,11 +7,10 @@ int	gnl_test_01(void)
 	int		fd;
 	int		ret;
 
-	fd = -1;
-	fd = open("test.txt", fd, O_RDONLY);
+	fd = open("text.txt", O_RDONLY);
 	str = get_next_line(fd);
-	ret = strcmp(str, "There is no place like 127.0.0.1.");
-	if (ret == 1)
+	ret = strcmp(str, "There is no place like 127.0.0.1.\n");
+	if (ret == 0)
 		return (TEST_SUCCESS);
 	return (TEST_FAILLURE);
 }

@@ -10,35 +10,44 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC =		gcc
-NAME	=	tests
 
-MAIN	=	../../$(NAME).c
+define finishing
+	@echo "$(shell tput bold)$(shell tput setaf 3)Compiling $1 $(shell tput sgr0)"
+	@$(CC) $(OBJ) $(LIB) -o $1
+	@echo "$(shell tput bold)$(shell tput setaf 2)√$(shell tput sgr0)"
+endef
+
+CC =		gcc
+NAME	=	tester
+
 SRCS =	$(wildcard ./*.c)
 
 INC 			=	includes
-LIB				=	../lib/libunit.a
+LIB				=	../framework/lib/libunit.a
 RM 				=	rm -rf
 OBJ				=	$(SRCS:.c=.o)
-MAIN_OBJ	=	$(MAIN:.c=.o)
 CFLAG 		=	-Wall -Wextra -Werror
 
 all :	$(NAME)
 
 %.o : %.c
-			$(CC) $(CFLAG) -I $(INC) -c $< -o $@
+			@$(CC) $(CFLAG) -I $(INC) -c $< -o $@
 
-$(NAME) :	$(OBJ) $(MAIN_OBJ)
-			@make -C ../
-			$(CC) $(OBJ) $(MAIN_OBJ) $(LIB) -o ../../tester
+$(NAME) :	$(OBJ)
+			@make -C ../framework
+			$(call finishing,tester)
 
 clean :
 			$(RM) $(OBJ)
-			@make clean -C ../
+			@make clean -C ../framework
 
 fclean :	clean
-			$(RM) $(NAME)
-			@make fclean -C ../
+			$(RM) $(NAME) tester
+			@make fclean -C ../framework
+
+test	:	all
+			@echo "\nRUN THE TESTS!\n\n"
+			@./tester
 
 re : 		fclean all
 
