@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   02_strlcpy_ko.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 00:49:50 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 01:22:35 by athierry         ###   ########.fr       */
+/*   Created: 2022/01/09 15:53:48 by athierry          #+#    #+#             */
+/*   Updated: 2022/01/09 15:55:21 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcpy_rip(char *src, char *dst, size_t len)
-{
-	char	*ptr;
+#include "test.h"
 
-	ptr = dst;
-	while (len--)
+int	test_ok(void)
+{
+	static char	src[] = "salut les copinoux";
+	char		*dst;
+
+	
+	dst = malloc(sizeof(char) * sizeof(src));
+	if (!dst)
+		return (-1);
+	if (sizeof(src) == ft_strlcpy_rip(src, dst, sizeof(src)))
 	{
-		if (len == 8)
-			dst += MAX_INT;
-		if (len == 10)
-			dst += 10;
-		*(dst_ptr++) = *(src_ptr++);
+		while (src)
+			if (src++ != dst++)
+				return (-1);
 	}
-	return (dst - ptr);
+	return (0);
 }
