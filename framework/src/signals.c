@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:23 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 22:58:54 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 23:03:13 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*show_result(int signal)
 	{
 		exit_status = WTERMSIG(signal);
 		if (exit_status == 10)
-			return (CRED"Bus Error"CNO);
+			return (CRED"SIGBUS"CNO);
 		if (exit_status == 11)
-			return (CRED"Segmentation Fault"CNO);
+			return (CRED"SIGSEGV"CNO);
 	}
 	return (CRED"Error unknown"CNO);
 }
