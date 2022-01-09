@@ -5,14 +5,14 @@
 #include <stdio.h>
 
 /* print all the tests */
-static inline void	show_tests(t_unit_test *test)
+/* static inline void	show_tests(t_unit_test *test)
 {
 	while (test)
 	{
 		printf("%s: %s : %d\n", test->test_name, test->f_name, test->f());
 		test = test->next;
 	}
-}
+} */
 
 static inline int foo_f(void)
 {
