@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceFolder}/framework/**",
                 "${workspaceFolder}/real-tests/**",
-                "${workspaceFolder}/tests/**"
+                "${workspaceFolder}/tests/**",
+                "${workspaceFolder}/real-tests/includes"
             ],
             "defines": [],
             "macFrameworkPath": [

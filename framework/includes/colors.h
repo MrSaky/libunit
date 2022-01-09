@@ -6,12 +6,12 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 13:28:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 15:02:00 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 20:32:16 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef COLORS_H
+# define COLORS_H
 
 # define CRED "\033[0;31m"
 # define CGRN "\033[0;32m"

@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 14:57:35 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 21:12:04 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:52:56 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	gnl_launcher(void)
 	load_test(&tests, "41 char no NL", "GNL", &gnl_test_09);
 	load_test(&tests, "42 char with NL", "GNL", &gnl_test_10);
 	load_test(&tests, "42 char no NL", "GNL", &gnl_test_11);
-	load_test(&tests, "1st line", "GNL", &gnl_test_12);
-	load_test(&tests, "1st line", "GNL", &gnl_test_13);
-	load_test(&tests, "1st line", "GNL", &gnl_test_14);
-	load_test(&tests, "1st line", "GNL", &gnl_test_15);
+	load_test(&tests, "long line no NL", "GNL", &gnl_test_12);
+	load_test(&tests, "long lone with NL", "GNL", &gnl_test_13);
+	load_test(&tests, "alternate NL", "GNL", &gnl_test_14);
+	load_test(&tests, "multiple NL", "GNL", &gnl_test_15);
 	return (launch_tests(&tests));
 }

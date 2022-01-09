@@ -6,7 +6,7 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 20:51:29 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 20:54:24 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:52:27 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,18 @@
 
 int	gnl_test_15(void)
 {
-	char	*str;
 	int		fd;
 	int		ret;
 
-	fd = open("./files/text.txt", O_RDONLY);
-	str = get_next_line(fd);
-	close(fd);
-	ret = strcmp(str, "There is no place like 127.0.0.1.\n");
-	if (ret == 0)
-		return (TEST_SUCCESS);
-	return (TEST_FAILLURE);
+	fd = open("./files/09.txt", O_RDONLY);
+	ret = strcmp(get_next_line(fd), "\n");
+	if (ret != 0)
+		return (TEST_FAILLURE);
+	ret = strcmp(get_next_line(fd), "\n");
+	if (ret != 0)
+		return (TEST_FAILLURE);
+	ret = strcmp(get_next_line(fd), "\n");
+	if (ret != 0)
+		return (TEST_FAILLURE);
+	return (TEST_SUCCESS);
 }
