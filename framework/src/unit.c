@@ -6,12 +6,12 @@
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:24:08 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 14:18:19 by shocquen         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:15:08 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
-#include <stdio.h> //TODO rm
+#include "colors.h"
 
 static t_unit_test	*test_new(char *test_name, char *f_name, int (*f)(void))
 {
@@ -64,7 +64,7 @@ int		launch_tests(t_unit_test **test)
 			run_test(*test);
 		else if (ret < 0)
 		{
-			printf(0, "We got in trouble at fork ^^\n");
+			sm_printf("%sWe got in trouble at fork ^^%s\n", CYLW, CNO);
 		}
 		else
 		{
@@ -84,7 +84,7 @@ void	load_test(t_unit_test **tests, char *test_name, char *f_name, int (*f)(void
 	{
 		*tests = test_new(test_name, f_name, f);
 		if (!*tests)
-			printf("ERRO LOAD TEST\n");
+			sm_printf("%sERRO LOAD TEST%s\n", CYLW, CNO);
 	}
 	else
 		test_append(tests, test_new(test_name, f_name, f));

@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   00_gnl_tests.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 13:28:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 15:02:00 by shocquen         ###   ########.fr       */
+/*   Created: 2022/01/09 14:57:35 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/09 14:58:37 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#include "libunit.h"
+#include "get_next_line.h"
 
-# define CRED "\033[0;31m"
-# define CGRN "\033[0;32m"
-# define CYLW "\033[0;33m"
-# define CNO "\033[0;39m"
+int	gnl_launcher(void)
+{
+	t_unit_test	*tests;
 
-#endif
+	load_test();
+	return (launch_tests(&tests));
+}

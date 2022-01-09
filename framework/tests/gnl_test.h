@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   gnl_test.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shocquen <shocquen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 13:28:13 by shocquen          #+#    #+#             */
-/*   Updated: 2022/01/09 15:02:00 by shocquen         ###   ########.fr       */
+/*   Created: 2022/01/09 14:56:23 by shocquen          #+#    #+#             */
+/*   Updated: 2022/01/09 15:23:13 by shocquen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef GNL_TESTS_H
+# define GNL_TESTS_H
 
-# define CRED "\033[0;31m"
-# define CGRN "\033[0;32m"
-# define CYLW "\033[0;33m"
-# define CNO "\033[0;39m"
+#include "get_next_line.h"
+
+int	gnl_launcher(void);
+
+int	gnl_test_00(void);
+int	gnl_test_01(void);
 
 #endif

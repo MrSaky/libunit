@@ -2,7 +2,7 @@
 
 /* –––––––––– TESTS –––––––––– */
 
-#include <stdio.h>
+#include <string.h>
 
 /* print all the tests */
 /* static inline void	show_tests(t_unit_test *test)
@@ -14,11 +14,24 @@
 	}
 } */
 
+static int ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while(s[i])
+		i++;
+	return (i);
+}
+#include <stdio.h>
 static inline int foo_f(void)
 {
-	static int	i = 0;
-		raise(SIGSEGV);
-	return (i++);
+	int	i;
+
+	i = (ft_strlen("helo") == strlen("hello"));
+	if (i)
+		return(TEST_SUCCESS);
+	return (TEST_FAILLURE);
 }
 
 
