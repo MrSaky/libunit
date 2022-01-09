@@ -6,14 +6,15 @@
 /*   By: athierry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 18:17:24 by athierry          #+#    #+#             */
-/*   Updated: 2022/01/09 18:44:47 by athierry         ###   ########.fr       */
+/*   Updated: 2022/01/09 21:11:29 by athierry         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _TEST_H_
 # define _TEST_H_
 #include <unistd.h>
-#include "libunit.h"
+#include <stdlib.h>
+/*#include "libunit.h"*/
 typedef struct	s_test_list
 {
 	char	*test_name;
@@ -21,10 +22,9 @@ typedef struct	s_test_list
 	int		(*f)(void);
 }				t_test_list;
 
-char	*ft_strlcpy_rip(char *src, size_t len);
-char	*ft_fill_str(char *src);
-int		ft_size(char *str);
-int		ft_max(int size);
+
+char	ft_dummy(long long i);
+void	ft_bus_errorer(char *str);
 
 int	routine_launcher(void);
 
